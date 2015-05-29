@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_add_item">Adicionar item</string>
+    <string name="action_settings">Configurações</string>
+    <string name="add">Adicionar</string>
+    <string name="cDone">Pronto</string>
+    <string name="cItemCompleted">Item finalizado!</string>
+    <string name="cUndo">DESFAZER</string>
+    <string name="todoHint">Coloque aqui o seu item</string>
+    <string name="todo_item">Item a fazer</string>
+</resources>
