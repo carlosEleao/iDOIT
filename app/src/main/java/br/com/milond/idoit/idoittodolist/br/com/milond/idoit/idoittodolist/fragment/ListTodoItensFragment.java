@@ -27,6 +27,7 @@ public class ListTodoItensFragment extends Fragment {
     private ListView lvTodoItens;
     private TodoListAdapter mAdapter;
     private ArrayList<SuperActivityToast> superActivityToasts = new ArrayList<SuperActivityToast>();
+    private SuperActivityToast superActivityToast;
 
     public ListTodoItensFragment() {
 
@@ -92,7 +93,9 @@ public class ListTodoItensFragment extends Fragment {
 
                                     });
 
-                                    SuperActivityToast superActivityToast = new SuperActivityToast(getActivity(), SuperToast.Type.BUTTON, Style.getStyle(Style.BLUE, SuperToast.Animations.FLYIN));
+                                    dismissAllToasts();
+
+                                    superActivityToast = new SuperActivityToast(getActivity(), SuperToast.Type.BUTTON, Style.getStyle(Style.BLUE, SuperToast.Animations.FLYIN));
                                     superActivityToast.setDuration(SuperToast.Duration.MEDIUM);
                                     superActivityToast.setText(getText(R.string.cItemCompleted));
                                     superActivityToast.setButtonIcon(SuperToast.Icon.Dark.UNDO, getText(R.string.cUndo));
@@ -123,17 +126,17 @@ public class ListTodoItensFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-
-        // Dismiss Toasts in case they are in the screen yet
-        for (SuperActivityToast toast : superActivityToasts) {
-            toast.dismiss();
-        }
+        dismissAllToasts();
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        dismissAllToasts();
 
+    }
+
+    private void dismissAllToasts() {
         // Dismiss Toasts in case they are in the screen yet
         for (SuperActivityToast toast : superActivityToasts) {
             toast.dismiss();

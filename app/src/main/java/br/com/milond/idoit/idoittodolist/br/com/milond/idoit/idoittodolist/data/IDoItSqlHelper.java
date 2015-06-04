@@ -17,7 +17,7 @@ public class IDoItSqlHelper extends SQLiteOpenHelper {
     public static final String COLUMN_CREATION_DATE = "creation_date";
     public static final String COLUMN_DOTO_DATE = "todo_date";
     public static final String COLUMN_COMPLETE_DATE = "complete_date";
-    public static final String COLUMN_IS_ARCHIVATED = "archive";
+    public static final String COLUMN_IS_ARCHIVATED = "archived";
 
     private static final String DATABASE_NAME = "todo.db";
     private static final int DATABASE_VERSION = 1;
@@ -28,7 +28,6 @@ public class IDoItSqlHelper extends SQLiteOpenHelper {
             + COLUMN_TODO_ITEM_DESCRIPTION + " text not null, "
             + COLUMN_CREATION_DATE + " int, "
             + COLUMN_DOTO_DATE + " int, "
-            + COLUMN_CREATION_DATE + " int, "
             + COLUMN_COMPLETE_DATE + " int, "
             + COLUMN_IS_ARCHIVATED + " int" + ");";
 
@@ -44,7 +43,6 @@ public class IDoItSqlHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase database) {
-        database.enableWriteAheadLogging();
         database.execSQL(CREATE_TODO_TABLE);
     }
 
