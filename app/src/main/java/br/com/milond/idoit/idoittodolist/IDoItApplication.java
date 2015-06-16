@@ -21,7 +21,6 @@ public class IDoItApplication extends Application{
         analytics.setLocalDispatchPeriod(1800);
 
         tracker = analytics.newTracker("UA-63532445-1");
-        tracker.enableExceptionReporting(true);
         tracker.enableAdvertisingIdCollection(true);
         tracker.enableAutoActivityTracking(true);
     }

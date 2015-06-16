@@ -7,6 +7,6 @@ import br.com.milond.idoit.idoittodolist.br.com.milond.idoit.idoittodolist.data.
  */
 public interface OnTodoItemAddedListener {
 
-    public void onTodoItemAdded(TodoItem todoItem);
+    void onTodoItemAdded(TodoItem todoItem);
 
 }

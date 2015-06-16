@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.amulyakhare.textdrawable.util.ColorGenerator;
 
+import java.text.DateFormat;
 import java.util.List;
 
 import br.com.milond.idoit.idoittodolist.R;
@@ -92,17 +93,25 @@ public class TodoListAdapter extends BaseAdapter {
         TodoItem todoItem = mTodoItemList.get(position);
 
         TextView tvDescription = (TextView) convertView.findViewById(R.id.todo_item_description);
-        tvDescription.setText(mTodoItemList.get(position).getDescription());
+        ImageView image = (ImageView) convertView.findViewById(R.id.image_view);
 
         ColorGenerator generator = ColorGenerator.MATERIAL; // or use DEFAULT
 
         // generate random color
         int color = generator.getColor(todoItem.getDescription());
 
-        TextDrawable drawable = TextDrawable.builder()
-                .buildRound(todoItem.getDescription().substring(0,1).toUpperCase(), color);
+        TextDrawable drawable = null;
+        if(todoItem.getComplete()) {
+            image.setVisibility(View.GONE);
+            String dateFormatted = DateFormat.getDateTimeInstance().format(todoItem.getCompleteDate());
+            tvDescription.setText(dateFormatted +" - "+todoItem.getDescription());
+        } else {
+            tvDescription.setText(todoItem.getDescription());
+            drawable = TextDrawable.builder()
+                    .buildRound(todoItem.getDescription().substring(0, 1).toUpperCase(), color);
+        }
 
-        ImageView image = (ImageView) convertView.findViewById(R.id.image_view);
+
         image.setImageDrawable(drawable);
 
         return convertView;

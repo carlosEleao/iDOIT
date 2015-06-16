@@ -15,7 +15,7 @@ public class IDoItSqlHelper extends SQLiteOpenHelper {
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_TODO_ITEM_DESCRIPTION = "tood_item";
     public static final String COLUMN_CREATION_DATE = "creation_date";
-    public static final String COLUMN_DOTO_DATE = "todo_date";
+    public static final String COLUMN_TODO_DATE = "todo_date";
     public static final String COLUMN_COMPLETE_DATE = "complete_date";
     public static final String COLUMN_IS_ARCHIVATED = "archived";
 
@@ -27,14 +27,14 @@ public class IDoItSqlHelper extends SQLiteOpenHelper {
             + COLUMN_ID + " integer primary key autoincrement, "
             + COLUMN_TODO_ITEM_DESCRIPTION + " text not null, "
             + COLUMN_CREATION_DATE + " int, "
-            + COLUMN_DOTO_DATE + " int, "
+            + COLUMN_TODO_DATE + " int, "
             + COLUMN_COMPLETE_DATE + " int, "
-            + COLUMN_IS_ARCHIVATED + " int" + ");";
+            + COLUMN_IS_ARCHIVATED + " int DEFAULT 0 " + ");";
 
     private static final String UPGRADE_TODO_TABLE_V1_V2 =
             "ALTER TABLE " + TABLE_TODO_ITEM  + " "+ COLUMN_CREATION_DATE + " int; "
-                    + "ALTER TABLE " + TABLE_TODO_ITEM  + " "+ COLUMN_DOTO_DATE + " int; "
-                    + "ALTER TABLE " + TABLE_TODO_ITEM  + " "+ COLUMN_IS_ARCHIVATED + " int; "
+                    + "ALTER TABLE " + TABLE_TODO_ITEM  + " "+ COLUMN_TODO_DATE + " int; "
+                    + "ALTER TABLE " + TABLE_TODO_ITEM  + " "+ COLUMN_IS_ARCHIVATED + " int DEFAULT 0; "
                     + "ALTER TABLE " + TABLE_TODO_ITEM  + " "+ COLUMN_CREATION_DATE + " int; ";
 
     public IDoItSqlHelper(Context context) {

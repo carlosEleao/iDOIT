@@ -12,7 +12,6 @@
         android:textColor="@color/hint_foreground_material_dark"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:background="@color/bbutton_success_disabled"
         android:text="@string/cDone"/>
 
 

@@ -1,5 +1,11 @@
-<menu
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
-   <!-- <item android:id="@+id/action_add" android:title="@string/action_add_item"
-        android:orderInCategory="100" app:showAsAction="always" /> -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/context_menu"
+        android:title="@string/cMenu"
+        android:icon="@drawable/abc_ic_menu_moreoverflow_mtrl_alpha"
+        android:orderInCategory="100"
+        app:showAsAction="always" />
+
 </menu>
